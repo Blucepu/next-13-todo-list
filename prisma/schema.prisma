@@ -6,8 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = "mysql://xgyesg2y7dvo4gma9t2s:pscale_pw_pOlqQIigonIBrnDBwRnOav9LEijqpsyNUG21G4ckHGV@aws.connect.psdb.cloud/t3-dev?sslaccept=strict"
+  relationMode = "prisma"
 }
 
 model Todo {
