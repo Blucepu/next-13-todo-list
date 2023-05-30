@@ -4,7 +4,11 @@ import Link from "next/link";
 
 async function getTodos() {
   "use server";
-  return await prisma.todo.findMany();
+  return await prisma.todo.findMany({
+    orderBy: {
+      createdAt: "asc",
+    },
+  });
 }
 
 async function toggleTodo(id: string, complete: boolean) {
@@ -27,7 +31,7 @@ export default async function Home() {
           New
         </Link>
       </header>
-      <ul className="pl-4">
+      <ul className=" max-w-lg mx-auto">
         {todos.map((todo) => (
           <TodoItem key={todo.id} {...todo} toggleTodo={toggleTodo} />
         ))}
