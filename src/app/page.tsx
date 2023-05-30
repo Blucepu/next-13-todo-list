@@ -3,7 +3,7 @@ import { prisma } from "@/db";
 import Link from "next/link";
 
 async function getTodos() {
-  "use server";
+  "use client";
   return await prisma.todo.findMany({
     orderBy: {
       createdAt: "asc",
