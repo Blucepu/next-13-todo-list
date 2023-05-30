@@ -1,6 +1,7 @@
 import { prisma } from "@/db";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import { RedirectType } from "next/dist/client/components/redirect";
 
 async function deleteTodo(data: FormData) {
   "use server";
@@ -17,7 +18,7 @@ async function deleteTodo(data: FormData) {
       id: title,
     },
   });
-  redirect("/");
+  redirect("/", RedirectType.replace);
 }
 
 export default function Delete(props: any) {

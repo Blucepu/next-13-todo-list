@@ -1,6 +1,7 @@
 import { prisma } from "@/db";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import { RedirectType } from "next/dist/client/components/redirect";
 
 async function createTodo(data: FormData) {
   "use server";
@@ -11,7 +12,8 @@ async function createTodo(data: FormData) {
   }
 
   await prisma.todo.create({ data: { title, complete: false } });
-  redirect("/");
+
+  redirect("/", RedirectType.push);
 }
 
 export default async function Page() {
