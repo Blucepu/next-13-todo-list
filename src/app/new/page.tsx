@@ -14,13 +14,13 @@ async function createTodo(data: FormData) {
   redirect("/");
 }
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <header className="flex justify-between items-center mb-4">
         <h1 className="text-2xl">New</h1>
       </header>
-      <form action={createTodo} className="flex gap-2 flex-col">
+      <form action={await createTodo} className="flex gap-2 flex-col">
         <input
           type="text"
           name="title"
